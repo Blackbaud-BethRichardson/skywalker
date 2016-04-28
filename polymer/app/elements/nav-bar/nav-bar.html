@@ -10,26 +10,50 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<dom-module id="my-element">
+<dom-module id="nav-bar">
   <template>
     <style>
       :host {
         display: block;
       }
     </style>
-    <div>Hello from <span>{{foo}}</span></div>
+    <div class="container-fluid">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="bb-navbar-active"><a href="">Selected Item</a></li>
+        <li class="dropdown">
+          <a href="" class="dropdown-toggle" role="button">Child Items <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+
+            <li>
+              <a href="">{{foo}}</a>
+            </li>
+
+            <li>
+              <a href="">{{foo}}</a>
+            </li>
+
+            <li>
+              <a href="">{{foo}}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="">Right Item</a></li>
+      </ul>
+    </div>
   </template>
   <script>
   (function() {
     'use strict';
 
     Polymer({
-      is: 'my-element',
+      is: 'nav-bar',
 
       properties: {
         foo: {
           type: String,
-          value: 'my-element',
+          value: 'nav-bar',
           notify: true
         }
       }

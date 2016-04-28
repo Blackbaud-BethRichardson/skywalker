@@ -34,8 +34,8 @@ window.addEventListener('WebComponentsReady', () => {
     app.params = data.params;
   });
 
-  page('/contact', scrollToTop, () => {
-    app.route = 'contact';
+  page('/nav', scrollToTop, () => {
+    app.route = 'nav';
   });
 
   page('*', function(attempted) {
