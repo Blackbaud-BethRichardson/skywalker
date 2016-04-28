@@ -199,7 +199,7 @@ gulp.task('clean', function (cb) {
 });
 
 // Watch files for changes & reload
-gulp.task('serve', ['images', 'js', 'lint', 'styles', 'views'], function () {
+gulp.task('serve', ['js', 'styles', 'views'], function () {
   browserSync({
     browser: config.browserSync.browser,
     https: config.browserSync.https,
@@ -263,18 +263,11 @@ gulp.task('serve:dist', ['default'], function () {
 // Clean dist directory
 gulp.task('clean-dist', require(task('clean-dist'))(del));
 
-// Download newest script analytics.js from Google, because link
-// https://www.google-analytics.com/analytics.js has set only 2 hours cache
-gulp.task('download:analytics', require(task('download-analytics'))($, gulp));
-
 // Fix path to sw-toolbox.js
 gulp.task('fix-path-sw-toolbox', require(task('fix-path-sw-toolbox'))($, gulp));
 
 // Transpile all JS from ES2015 (ES6) to ES5
 gulp.task('js', require(task('js-babel'))($, gulp));
-
-// Lint CSS and JavaScript
-gulp.task('lint', require(task('lint'))($, gulp, merge));
 
 // Add colors to Web Application Manifest - manifest.json
 gulp.task('manifest', require(task('manifest'))($, config, gulp));
