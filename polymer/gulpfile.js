@@ -290,7 +290,7 @@ gulp.task('views', require(task('views-nunjucks'))($, config, gulp));
 // Build Production Files, the Default Task
 gulp.task('default', ['clean'], function (cb) {
   runSequence(
-    ['copy', 'js', 'jshint', 'lint', 'manifest', 'styles'],
+    ['copy', 'js', 'jshint', 'manifest', 'styles'],
     ['fonts', 'html', 'images'],
     'vulcanize',
     ['clean-dist', 'minify-dist'],
