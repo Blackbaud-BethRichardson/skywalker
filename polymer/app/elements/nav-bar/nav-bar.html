@@ -1,35 +1,123 @@
-
-
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"
+        integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://sky.blackbaudcdn.net/skyux/1.5.19/css/sky-bundle.css"  crossorigin="anonymous">
+
 
 <dom-module id="nav-bar">
-  <template>
-    <nav class="navbar navbar-default bb-navbar">
-      <div class="container ng-scope">
-        <div class="row">
-          <div class="col-sm-12">
-            <ul class="nav navbar-nav navbar-left">
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li class="bb-navbar-active">
-                <a href="">Getting Started</a>
-              </li>
-              <li>
-                <a href="">Components</a>
-              </li>
-              <li>
-                <a href="">Blog</a>
-              </li>
-            </ul>
-          </div>
+    <template>
+        <style>
+            .nav > li > a i {
+                margin-right: 6px;
+            }
+
+            .navbar {
+                border: 0;
+                border-radius: 0;
+            }
+
+            .bb-navbar {
+                border-bottom: 1px solid #cccccc;
+                background-color: #2f4050;
+                margin-bottom: 0;
+            }
+            @media (max-width: 767px) {
+                .bb-navbar:not(.bb-navbar-showmobile) {
+                    display: none;
+                }
+            }
+            .bb-navbar .dropdown .dropdown-menu {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+            .bb-navbar.navbar {
+                border-radius: 0;
+            }
+            .bb-navbar .nav.navbar-nav {
+                font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                padding: 0;
+                margin: 0;
+                font-size: 0;
+                color: #a7b1c2;
+            }
+            .bb-navbar .nav.navbar-nav li {
+                cursor: pointer;
+                font-size: 14px;
+                white-space: nowrap;
+                margin-right: 5px;
+            }
+            .bb-navbar .nav.navbar-nav li .dropdown-menu li {
+                margin: 0;
+            }
+            .bb-navbar .nav.navbar-nav li .dropdown-menu li a {
+                background-color: #2f4050;
+                border-bottom: none;
+                font-size: 12px;
+                font-weight: normal;
+                color: #a7b1c2;
+            }
+            .bb-navbar .nav.navbar-nav li a,
+            .bb-navbar .nav.navbar-nav li .dropdown-menu a {
+                padding: 16px 12px;
+                text-decoration: none;
+                color: #a7b1c2;
+                font-weight: 600;
+                margin: 0;
+                border-radius: 0;
+            }
+            .bb-navbar .nav.navbar-nav li a:hover,
+            .bb-navbar .nav.navbar-nav li .dropdown-menu a:hover {
+                background-color: #293846;
+                color: #fff;
+            }
+            .bb-navbar .nav.navbar-nav li:hover a, .bb-navbar .nav.navbar-nav li.bb-navbar-active a {
+                background-color: #293846;
+                border-bottom: solid 4px #1c84c6;
+                color: #fff;
+                padding-bottom: 12px;
+            }
+            .bb-navbar .nav.navbar-nav li.disabled {
+                pointer-events: none;
+            }
+            .bb-navbar .nav.navbar-nav li.disabled a {
+                background-color: transparent;
+                border-bottom: none;
+                cursor: default;
+                color: #6b7c98;
+                padding-bottom: 0;
+            }
+            .bb-navbar .nav.navbar-nav.navbar-right li {
+                margin-left: 5px;
+                margin-right: 0;
+            }
+
+            @media (min-width: 768px) {
+                ul.nav-items li a {
+                    padding: 16px;
+                }
+                ul.nav-items li:after {
+                    left: 15px;
+                }
+            }
+        </style>
+        <div>
+            <nav class="navbar navbar-default bb-navbar">
+                <div class="container ng-scope">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="nav navbar-nav navbar-left">
+                                <template is="dom-repeat" items="{{menuItems}}">
+                                    <li on-click="click">
+                                        <a href="">{{item.title}}</a>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
         </div>
-      </div>
-    </nav>
-  </template>
-  <script src="nav-bar.js"></script>
+    </template>
+    <script src="nav-bar.js"></script>
 </dom-module>
