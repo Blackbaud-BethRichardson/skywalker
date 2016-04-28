@@ -349,12 +349,5 @@ gulp.task('download:fonts', require(task('download-fonts'))($, config, gulp));
 // Run PageSpeed Insights
 gulp.task('pagespeed', require(task('pagespeed'))(config));
 
-// Test Tasks
-// ----------
-
-// Load tasks for web-component-tester
-// Adds tasks for `gulp test:local` and `gulp test:remote`
-require('web-component-tester').gulp.init(gulp);
-
 // Load custom tasks from the `tasks` directory
 try { require('require-dir')('tasks/tests'); } catch (err) {}
