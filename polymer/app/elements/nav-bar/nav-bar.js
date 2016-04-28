@@ -6,10 +6,9 @@ class NavBar {
 
     beforeRegister() {
         this.properties = {
-            foo: {
-                type: String,
-                value: 'blah',
-                notify: true
+            items: {
+                type: Array,
+                value: []
             }
         };
 
@@ -19,14 +18,14 @@ class NavBar {
     }
 
     ready() {
-        this.menuItems = [
-            {
-                title: 'blah'
-            },
-            {
-                title: 'blah 2'
-            }
-        ];
+        // this.menuItems = [
+        //     {
+        //         title: 'blah'
+        //     },
+        //     {
+        //         title: 'blah 2'
+        //     }
+        // ];
     }
 
     click(event) {
