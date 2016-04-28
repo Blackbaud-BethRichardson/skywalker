@@ -199,7 +199,7 @@ gulp.task('clean', function (cb) {
 });
 
 // Watch files for changes & reload
-gulp.task('serve', ['images', 'js', 'lint', 'manifest', 'styles', 'views'], function () {
+gulp.task('serve', ['images', 'js', 'lint', 'styles', 'views'], function () {
   browserSync({
     browser: config.browserSync.browser,
     https: config.browserSync.https,

@@ -1,7 +1,7 @@
 class NavBar {
 
     get is() {
-        return "nav-bar";
+        return 'nav-bar';
     }
 
     beforeRegister() {
