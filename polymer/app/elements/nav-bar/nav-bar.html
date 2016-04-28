@@ -1,41 +1,36 @@
 
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/polymer/0.5.6/polymer.min.js"></script>
+<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://sky.blackbaudcdn.net/skyux/1.5.19/css/sky-bundle.css" integrity="sha384-2JNB2gDdPRkOCdXxLTDVW5C1MqY0gH9vlq9wFKkQIcagNekggLOfyIo6OotY+pRu" crossorigin="anonymous">
 
 <dom-module id="nav-bar">
   <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <button on-click="click">Blah</button>
-    <div class="container-fluid">
-      <ul class="nav navbar-nav navbar-left">
-        <li class="bb-navbar-active"><a href="">Selected Item</a></li>
-        <li class="dropdown">
-          <a href="" class="dropdown-toggle" role="button">Child Items <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-
-            <li>
-              <a href="">{{foo}}</a>
-            </li>
-
-            <li>
-              <a href="">{{foo}}</a>
-            </li>
-
-            <li>
-              <a href="">{{foo}}</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="">Right Item</a></li>
-      </ul>
-    </div>
-
+    <nav class="navbar navbar-default bb-navbar">
+      <div class="container ng-scope">
+        <div class="row">
+          <div class="col-sm-12">
+            <ul class="nav navbar-nav navbar-left">
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li class="bb-navbar-active">
+                <a href="">Getting Started</a>
+              </li>
+              <li>
+                <a href="">Components</a>
+              </li>
+              <li>
+                <a href="">Blog</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
   </template>
   <script src="nav-bar.js"></script>
 </dom-module>
