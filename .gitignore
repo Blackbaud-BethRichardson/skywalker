@@ -1,4 +1,5 @@
 .idea
+polymer/.idea
 app/scripts/analytics.js
 app/themes/default-theme/fonts/*
 bower_components
