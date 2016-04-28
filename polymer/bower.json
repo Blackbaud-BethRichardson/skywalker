@@ -1,6 +1,9 @@
 {
   "name": "polymer-starter-kit-plus",
   "private": true,
+  "main": [
+    "app/elements/nav-bar/nav-bar.html"
+  ],
   "dependencies": {
     "font-roboto": "StartPolymer/font-empty#1.1.x",
     "iron-elements": "PolymerElements/iron-elements#1.0.x",

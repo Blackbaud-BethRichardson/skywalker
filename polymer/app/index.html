@@ -4,17 +4,16 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <title>nav-bar</title>
 
-  <script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
-
+    <script src="https://cdn.rawgit.com/download/polymer-cdn/1.2.3.2/lib/webcomponentsjs/webcomponents-lite.js"></script>
   <!-- Import the element to test -->
   <link rel="import" href="elements/nav-bar/nav-bar.html">
   <script>
       addEventListener('menu-item-selected', function(e) {
-          console.log(e.detail.menu + ' selected');
+          console.log('Go to ' + e.detail.menu);
       });
   </script>
 </head>
 <body>
-  <nav-bar items='[{"title":"test"},{"title":"test2"}]'></nav-bar>
+  <nav-bar items='[{"title":"Advocacy"},{"title":"Team Raiser"}]'></nav-bar>
 </body>
 </html>
