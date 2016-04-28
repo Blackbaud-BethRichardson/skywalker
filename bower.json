@@ -1,0 +1,7 @@
+{
+  "name": "skywalker",
+  "private": true,
+  "main": [
+    "./polymer/app/elements/nav-bar/nav-bar.html"
+  ]
+}
