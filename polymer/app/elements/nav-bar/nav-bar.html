@@ -107,9 +107,9 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <ul class="nav navbar-nav navbar-left">
-                                <template is="dom-repeat" items="{{items}}">
-                                    <li on-click="click">
-                                        <a href="">{{item.title}}</a>
+                                <template is="dom-repeat" items="{{items}}" as="item">
+                                    <li>
+                                        <a href="" on-click="handleClick" data-index="{{index}}">{{item.title}}</a>
                                     </li>
                                 </template>
                             </ul>

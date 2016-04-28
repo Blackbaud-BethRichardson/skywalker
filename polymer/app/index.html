@@ -8,12 +8,13 @@
 
   <!-- Import the element to test -->
   <link rel="import" href="elements/nav-bar/nav-bar.html">
-
+  <script>
+      addEventListener('menu-item-selected', function(e) {
+          console.log(e.detail.menu + ' selected');
+      });
+  </script>
 </head>
 <body>
-
   <nav-bar items='[{"title":"test"},{"title":"test2"}]'></nav-bar>
-
-
 </body>
 </html>

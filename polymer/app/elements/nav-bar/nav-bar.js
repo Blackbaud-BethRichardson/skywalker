@@ -6,6 +6,9 @@ class NavBar {
 
     beforeRegister() {
         this.properties = {
+            selected: {
+                type: Object
+            },
             items: {
                 type: Array,
                 value: []
@@ -13,28 +16,17 @@ class NavBar {
         };
 
         this.listeners = {
-            'click': 'click'
+            'on-click': 'handleClick'
         }
     }
 
-    ready() {
-        // this.menuItems = [
-        //     {
-        //         title: 'blah'
-        //     },
-        //     {
-        //         title: 'blah 2'
-        //     }
-        // ];
-    }
-
-    click(event) {
+    handleClick(event) {
         event.preventDefault();
-
         NavBar.unselectAll();
 
         let el = event.target;
         $(el).parent().addClass('bb-navbar-active');
+        this.fire('menu-item-selected', {'menu': event.model.get('item.title')})
     }
 
     static unselectAll() {
