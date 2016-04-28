@@ -98,15 +98,8 @@ gulp.task('copy', function () {
     .pipe($.size({title: 'Copy files to dist dir:'}));
 });
 
-// Copy web fonts to dist
-gulp.task('fonts', function () {
-  return gulp.src(['app/themes/' + config.theme + '/fonts/**/*.{css,woff,woff2}'])
-    .pipe(gulp.dest('dist/themes/' + config.theme + '/fonts'))
-    .pipe($.size({title: 'Copy fonts to dist/themes/' + config.theme + '/fonts dir:'}));
-});
-
 // Scan your HTML for assets & optimize them
-gulp.task('html', ['views'], function () {
+gulp.task('html', function () {
   var assets = $.useref.assets({searchPath: ['dist']});
 
   return gulp.src(['app/*.html', '.tmp/*.html'])
@@ -199,7 +192,7 @@ gulp.task('clean', function (cb) {
 });
 
 // Watch files for changes & reload
-gulp.task('serve', ['js', 'styles', 'views'], function () {
+gulp.task('serve', ['js', 'styles'], function () {
   browserSync({
     browser: config.browserSync.browser,
     https: config.browserSync.https,
@@ -230,7 +223,7 @@ gulp.task('serve', ['js', 'styles', 'views'], function () {
     'app/*.html',
     'app/views/**/*.html',
     'app/content/**/*.md'
-  ], ['views', reload]);
+  ], [reload]);
   gulp.watch(['app/{elements,themes}/**/*.{css,html}'], ['styles', reload]);
   gulp.watch(['app/{scripts,elements}/**/*.{js,html}'], ['jshint', 'js']);
   gulp.watch(['app/images/**/*'], reload);
@@ -284,14 +277,11 @@ gulp.task('serve:gae', ['default'], require(task('serve-gae'))($, gulp));
 // Transform styles with PostCSS
 gulp.task('styles', require(task('styles'))($, config, gulp, merge));
 
-// Compile HTML files with Nunjucks templating engine
-gulp.task('views', require(task('views-nunjucks'))($, config, gulp));
-
 // Build Production Files, the Default Task
 gulp.task('default', ['clean'], function (cb) {
   runSequence(
-    ['copy', 'js', 'jshint', 'manifest', 'styles'],
-    ['fonts', 'html', 'images'],
+    ['copy', 'js', 'jshint', 'manifest'],
+    ['html'],
     'vulcanize',
     ['clean-dist', 'minify-dist'],
     'cache-config',
